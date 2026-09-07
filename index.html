@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For a Stranger — leave a note</title>
+<meta name="description" content="A wall of notes left for whoever finds them. Leave one, or read what's already here." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="board">
+
+  <header class="site-header">
+    <div class="header-text">
+      <h1>For a Stranger</h1>
+      <p class="tagline">A wall of thoughts, left for whoever finds them. Pin one, or read what's already here.</p>
+    </div>
+    <button id="open-composer" class="pin-button">+ Leave a note</button>
+  </header>
+
+  <section class="filter-bar" aria-label="Look at the wall from another point in time">
+    <div class="filter-label">
+      <span class="filter-title">Look back</span>
+      <span class="filter-sub">See the wall as it was on a certain day and time</span>
+    </div>
+    <div class="filter-controls">
+      <label class="field">
+        <span>Date</span>
+        <input type="date" id="filter-date" />
+      </label>
+      <label class="field">
+        <span>Time</span>
+        <input type="time" id="filter-time" />
+      </label>
+      <button id="apply-filter" class="ghost-button">Show that moment</button>
+      <button id="clear-filter" class="ghost-button ghost-button--quiet" hidden>Back to now</button>
+    </div>
+  </section>
+
+  <p id="board-status" class="board-status">Loading the wall…</p>
+
+  <main id="notes-board" class="notes-board" aria-live="polite"></main>
+
+</div>
+
+<div id="composer-overlay" class="composer-overlay" hidden>
+  <div class="composer" role="dialog" aria-modal="true" aria-labelledby="composer-title">
+    <h2 id="composer-title">Leave a thought for whoever finds it</h2>
+    <textarea id="note-text" maxlength="280" placeholder="Write something for a stranger…" autofocus></textarea>
+    <div class="composer-footer">
+      <span id="char-count" class="char-count">280 left</span>
+      <div class="composer-actions">
+        <button id="cancel-note" class="ghost-button ghost-button--quiet">Cancel</button>
+        <button id="submit-note" class="pin-button">Pin it to the wall</button>
+      </div>
+    </div>
+    <p id="composer-error" class="composer-error" hidden></p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Every note stays up for good. Be kind — someone will read this.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
