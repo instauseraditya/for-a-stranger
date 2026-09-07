@@ -144,6 +144,7 @@ notesRef.orderBy("createdAt", "desc").onSnapshot(
 --------------------------------------------------- */
 function openComposer() {
   overlayEl.hidden = false;
+  overlayEl.classList.remove("is-hidden");
   errorEl.hidden = true;
   textareaEl.value = "";
   updateCharCount();
@@ -152,6 +153,7 @@ function openComposer() {
 
 function closeComposer() {
   overlayEl.hidden = true;
+  overlayEl.classList.add("is-hidden");
 }
 
 function updateCharCount() {
