@@ -261,11 +261,16 @@ body::before{
   position: fixed;
   inset: 0;
   background: rgba(15, 20, 15, 0.72);
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
   z-index: 10;
+}
+
+/* Add this line right below .composer-overlay */
+.composer-overlay[hidden] {
+  display: none !important;
 }
 
 .composer{
