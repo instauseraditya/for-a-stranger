@@ -7,4 +7,4 @@ window.firebaseConfig = {
   messagingSenderId: "195222287285",
   appId: "1:195222287285:web:7d653e613d7664fe1a5ffc",
   measurementId: "G-HJN0CYN788"
-};
+}; 
